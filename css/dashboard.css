@@ -1,0 +1,21 @@
+body{
+    background-color: rgb(236, 233, 233);
+}
+
+.col{
+    border: 2px solid;
+    border-radius: 10px;
+    margin-right:10px;
+    height: 200px;
+    background-color: white;
+    border-color: white;
+    
+}
+.info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.fa-arrow-up {
+    color: blue;
+}

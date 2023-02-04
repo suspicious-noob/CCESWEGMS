@@ -1,0 +1,27 @@
+.navbar{
+    justify-content: center;
+}
+a.nav-link {
+    color: white;
+    font-size: larger;
+}
+body{
+    background-color: #07A0C3
+}
+.container {
+    background-color: rgb(241, 237, 237);
+    border: 2px solid;
+    border-radius: 20px;
+    border-color: #07A0C3;
+
+}
+.col{
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+}
+.form-control{
+    border: 1px solid;
+    border-radius: 10px;
+}
+
