@@ -11,22 +11,6 @@ if (isset($_SESSION['id'])) {
     header("Location: ../functions/logout.php");
 }
 
-$query = "SELECT * FROM student";
-$result = mysqli_query($conn, $query);
-$numstudents = mysqli_num_rows($result);
-
-$query = "SELECT * FROM teachers";
-$result = mysqli_query($conn, $query);
-$numteachers = mysqli_num_rows($result);
-
-$query = "SELECT * FROM section";
-$result = mysqli_query($conn, $query);
-$numcourse = mysqli_num_rows($result);
-
-$query = "SELECT * FROM section";
-$result = mysqli_query($conn, $query);
-$numsection = mysqli_num_rows($result);
-
 ?>
 
 <!DOCTYPE html>
@@ -55,47 +39,47 @@ $numsection = mysqli_num_rows($result);
 
 <body class="sb-nav-fixed">
     <div id="fb-root"></div>
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v16.0" nonce="cSpkHmtl"></script>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v15.0" nonce="0UDLLmYV"></script>
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         <a class="navbar-brand ps-3" href="#">
             <img src="../graphics/logo.png" height="40px" width=40px" alt="">
             Calapan Chu Eng
         </a>
-        <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><span class="navbar-toggler-icon"></span></button>
-        <button class="btn" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
-
-        </button>
-
-
-
-        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <?php
-                    if (isset($_SESSION['firstname'])) {
-                        echo $_SESSION['firstname'];
-                    }
-                    ?>
-                </a>
-                <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
-                    <li><a class="dropdown-item" href="../profile.php">Profile</a></li>
-                    <li><a class="dropdown-item" href="#">About</a></li>
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="../functions/logout.php">Log out</a>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-
+            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><span class="navbar-toggler-icon"></span></button>
+            <button class="btn" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+                
+            </button>
+            
+                
+                
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <?php
+                                if (isset($_SESSION['firstname'])) {
+                                    echo $_SESSION['firstname'];
+                                }
+                                ?>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
+                                <li><a class="dropdown-item" href="profile.php">Profile</a></li>
+                                <li><a class="dropdown-item" href="#">About</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li>
+                                <a class="dropdown-item" href="../functions/logout.php">Log out</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+            
     </nav>
 
     <div id="layoutSidenav">
-        <div id="layoutSidenav_nav">
+    <div id="layoutSidenav_nav">
             <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
-                <div class="sb-sidenav-menu">
+            <div class="sb-sidenav-menu">
                     <div class="nav">
                         <div class="sb-sidenav-menu-heading">Core</div>
                         <a class="nav-link" href="landing.php">
@@ -176,113 +160,17 @@ $numsection = mysqli_num_rows($result);
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid px-4">
-                    <h1 class="mt-4">Administrator Panel (A.Y. 2022-2023)</h1>
+                    <h1 class="mt-4">Student List</h1>
                     <ol class="breadcrumb mb-4">
-                        <li class="breadcrumb-item active">Dashboard</li>
+                        <li class="breadcrumb-item active">Master list</li>
                     </ol>
-                    <div class="row">
-                        <div class="col-xl-3 col-md-6">
-                            <div class="card bg-primary text-white mb-4">
-                                <div class="card-body">
-                                    <a class="nav-link" href="viewstudents.php" style="color:white">
-                                        Students
-                                    </a>
-                                </div>
-                                <div class="card-footer d-flex flex-column align-items-center justify-content-between">
-                                    <h3>
-                                        <?php
-                                        echo $numstudents;
-                                        ?>
-                                    </h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-md-6">
-                            <div class="card bg-warning text-white mb-4">
-                                <div class="card-body">
-                                    <a class="nav-link" href="viewteachers.php" style="color:white">
-                                        Teachers
-                                    </a>
-                                </div>
-                                <div class="card-footer d-flex flex-column align-items-center justify-content-between">
-                                    <h3>
-                                        <?php
-                                        echo $numteachers;
-                                        ?>
-                                    </h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-md-6">
-                            <div class="card bg-success text-white mb-4">
-                                <div class="card-body">
-                                    <a class="nav-link" href="viewcourse.php" style="color:white">
-                                        Classes
-                                    </a>
-                                </div>
-                                <div class="card-footer d-flex flex-column align-items-center justify-content-between">
-                                    <h3>
-                                        <?php
-                                        echo $numcourse;
-                                        ?>
-                                    </h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-md-6">
-                            <div class="card bg-danger text-white mb-4">
-                                <div class="card-body">
-                                    <a class="nav-link" href="viewsection.php" style="color:white">
-                                        Sections
-                                    </a>
-                                </div>
-                                <div class="card-footer d-flex flex-column align-items-center justify-content-between">
-                                    <h3>
-                                        <?php
-                                        echo $numsection;
-                                        ?>
-                                    </h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xl-6">
-                            <div class="card mb-4">
-                                <div class="card-header d-flex flex-column align-items-center justify-content-between">
-                                    <i class="fas fa-chart-area me-1"></i>
-                                    <h4>
-                                        Announcements
-                                    </h4>
-                                </div>
-                                <div class="card-body d-flex flex-column align-items-center justify-content-between">
-                                <div class="fb-post" data-href="https://www.facebook.com/CalapanChuEngSchool/posts/pfbid024oXhemEa18rBogwtQfnjwXRSrMC6bKgkzj97ootcH8FajL7Ki8zuxvE8jb1qhYbLl" data-width="500" data-show-text="true"><blockquote cite="https://www.facebook.com/CalapanChuEngSchool/posts/9025628764174497" class="fb-xfbml-parse-ignore"><p>Excerpts from Lawmaker Wants Mandarin Taught in Schools
-By: Jeannette I. Andrade - Reporter / &#064;jiandradeINQ
-Philippine...</p>Posted by <a href="https://facebook.com/CalapanChuEngSchool">Calapan Chu Eng School(Official)</a> on&nbsp;<a href="https://www.facebook.com/CalapanChuEngSchool/posts/9025628764174497">Monday, April 24, 2023</a></blockquote></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-6">
-                            <div class="card mb-4">
-                                <div class="card-header d-flex flex-column align-items-center justify-content-between">
-                                    <i class="fas fa-chart-bar me-1"></i>
-                                    <h4>
-                                        Graph (Under Construction)
-                                    </h4>
-                                </div>
-                                <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
-                            </div>
-                        </div>
-                    </div>
                     <div class="card mb-4">
-                        <div class="card-header d-flex flex-column align-items-center justify-content-between">
-                            <i class="fas fa-chart-bar me-1"></i>
-                            <h4>
-                                Tables (Under Construction)
-                            </h4>
+                        <div class="card-header">
+                            <i class="fas fa-table me-1"></i>
+                            DataTable Example
                         </div>
                         <div class="card-body">
-                            <table class="table">
+                        <table class="table">
                                 <thead>
                                     <tr>
                                         <th scope="col">Student ID</th>
@@ -293,14 +181,14 @@ Philippine...</p>Posted by <a href="https://facebook.com/CalapanChuEngSchool">Ca
                                 </thead>
                                 <tbody>
                                     <?php
-                                    $result = mysqli_query($conn, "SELECT * FROM student ORDER BY Lname");
+                                    $result = mysqli_query($conn,"SELECT * FROM student ORDER BY Lname");
 
                                     while ($rows = mysqli_fetch_array($result)) {
                                         echo "<tr>";
                                         echo "<td>" . $rows['Student_ID'] . "</td>";
                                         echo "<td>" . $rows['Fname'] . "</td>";
                                         echo "<td>" . $rows['Lname'] . "</td>";
-                                        echo "<td><a href=\"viewstudents.php\">Edit</a> | <a href=\"delete.php?id=$rows[Student_ID]\"onClick=\"return confirm('Are you sure you want todelete?')\">Delete</a></td>";
+                                        echo "<td><a href=\"edit.php?id=$rows[Student_ID]\">Edit</a> | <a href=\"delete.php?id=$rows[Student_ID]\"onClick=\"return confirm('Are you sure you want todelete?')\">Delete</a></td>";
                                     }
                                     echo "</tr>";
                                     ?>
