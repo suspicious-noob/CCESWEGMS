@@ -23,7 +23,7 @@
         <a class="nav-link" href="login.php">LOGIN</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">ABOUT US</a>
+        <a class="nav-link" href="checkenrollee.php">ENROLLMENT CHECKER</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">CONTACT</a>
