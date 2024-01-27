@@ -6,7 +6,7 @@ if (isset($_SESSION['id'])) {
     $id = $_SESSION['id'];
     $firstname = $_SESSION['firstname'];
     $lastname = $_SESSION['lastname'];
-    $clearance = $_SESSION['clearance'];
+    // $clearance = $_SESSION['clearance'];
 } else {
     header("Location: ../functions/logout.php");
 }

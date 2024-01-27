@@ -1,32 +1,32 @@
 <?php
 session_start();
-include "../db_conn.php";
+// include "../functions/function_lib.php";
 
 if (isset($_SESSION['id'])) {
     $id = $_SESSION['id'];
-    $firstname = $_SESSION['firstname'];
-    $lastname = $_SESSION['lastname'];
-    $clearance = $_SESSION['clearance'];
+    $fname = $_SESSION['fname'];
+    $lname = $_SESSION['lname'];
 } else {
     header("Location: ../functions/logout.php");
 }
 
-$query = "SELECT * FROM student";
-$result = mysqli_query($conn, $query);
-$numstudents = mysqli_num_rows($result);
+// $query = "SELECT * FROM student";
+// $result = mysqli_query($conn, $query);
+// $numstudents = mysqli_num_rows($result);
+$numstudents = 130;
 
-$query = "SELECT * FROM teachers";
-$result = mysqli_query($conn, $query);
-$numteachers = mysqli_num_rows($result);
-
-$query = "SELECT * FROM section";
-$result = mysqli_query($conn, $query);
-$numcourse = mysqli_num_rows($result);
-
-$query = "SELECT * FROM section";
-$result = mysqli_query($conn, $query);
-$numsection = mysqli_num_rows($result);
-
+// $query = "SELECT * FROM teachers";
+// $result = mysqli_query($conn, $query);
+// $numteachers = mysqli_num_rows($result);
+$numteachers = 20;
+// $query = "SELECT * FROM section";
+// $result = mysqli_query($conn, $query);
+// $numcourse = mysqli_num_rows($result);
+$numcourse = 23;
+// $query = "SELECT * FROM section";
+// $result = mysqli_query($conn, $query);
+// $numsection = mysqli_num_rows($result);
+$numsection = 40;
 ?>
 
 <!DOCTYPE html>
@@ -37,7 +37,7 @@ $numsection = mysqli_num_rows($result);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calapan Chu Eng School | Administrator</title>
-    <link rel="icon" type="image/x-icon" href="../graphics/logo.png" />
+    <link rel="icon" type="image/x-icon" href="/cceswegms/graphics/logo.png" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
@@ -72,8 +72,8 @@ $numsection = mysqli_num_rows($result);
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <?php
-                    if (isset($_SESSION['firstname'])) {
-                        echo $_SESSION['firstname'];
+                    if (isset($_SESSION['fname'])) {
+                        echo $_SESSION['fname'];
                     }
                     ?>
                 </a>
@@ -166,8 +166,8 @@ $numsection = mysqli_num_rows($result);
                 <div class="sb-sidenav-footer">
                     <div class="small">Logged in as:</div>
                     <?php
-                    if (isset($_SESSION['firstname'])) {
-                        echo $_SESSION['firstname'] . " " . $_SESSION['lastname'];
+                    if (isset($_SESSION['fname'])) {
+                        echo $_SESSION['fname'] . " " . $_SESSION['lname'];
                     }
                     ?>
                 </div>
@@ -292,7 +292,7 @@ Philippine...</p>Posted by <a href="https://facebook.com/CalapanChuEngSchool">Ca
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php
+                                    <!-- <?php
                                     $result = mysqli_query($conn, "SELECT * FROM student ORDER BY Lname");
 
                                     while ($rows = mysqli_fetch_array($result)) {
@@ -303,7 +303,7 @@ Philippine...</p>Posted by <a href="https://facebook.com/CalapanChuEngSchool">Ca
                                         echo "<td><a href=\"viewstudents.php\">Edit</a> | <a href=\"delete.php?id=$rows[Student_ID]\"onClick=\"return confirm('Are you sure you want todelete?')\">Delete</a></td>";
                                     }
                                     echo "</tr>";
-                                    ?>
+                                    ?> -->
                                 </tbody>
                             </table>
                         </div>
@@ -313,7 +313,7 @@ Philippine...</p>Posted by <a href="https://facebook.com/CalapanChuEngSchool">Ca
             <footer class="py-4 bg-light mt-auto">
                 <div class="container-fluid px-4">
                     <div class="d-flex align-items-center justify-content-between small">
-                        <div class="text-muted">Copyright &copy; Malik Simbahan 2022</div>
+                        <div class="text-muted">Copyright &copy; Malik Simbahan 2024</div>
                         <div>
 
                         </div>

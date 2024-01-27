@@ -32,7 +32,7 @@ session_start();
                 <div class="card-body" style="align-items: center;">
                     <h5 class="card-title text-center">Login</h5>
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="floatingInput" name="username" placeholder="12-3456"
+                        <input type="text" class="form-control" id="floatingInput" name="id" placeholder="12-3456"
                             required>
                         <label for="floatingInput">ID Number</label>
                     </div>
@@ -65,7 +65,7 @@ session_start();
                     <div class="container text-center">
                         <div class="row row-cols-2">
                             <div class="col d-grid">
-                                <a class="btn btn-secondary" href="index.php">Go Back</a>
+                                <a class="btn btn-secondary" href="homepage/index.html">Go Back</a>
                             </div>
                             <div class="col d-grid">
                                 <button class="btn btn-success" type="submit">Login</button>

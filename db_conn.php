@@ -1,7 +1,7 @@
 <?php
 
 $databaseHost = 'localhost';
-$databaseName = 'cesdb';
+$databaseName = 'schooldb';
 $databaseUsername = 'root';
 $databasePassword = '';
 
