@@ -5,6 +5,8 @@ $id = "root";
 $password = "";
 $dbname = "schooldb";
 
+
+
 $Connect = new mysqli($servername, $id, $password, $dbname);
 define("Connect", $Connect);
 
@@ -25,12 +27,12 @@ function bake($salt, $bread, $flavor)
 	return $cake;
 }
 
-function conjure($id, $password, $identifier)
+function conjure($id, $password, $identifier, $Connect)
 {
 	$salt = shake();
 	$password = bake($salt, $password, "sha256");
 	$salt = base64_encode($salt);
-	$sql = Connect->prepare("INSERT INTO master_id (`id`,`password`,`salt`,`identifier`) VALUES (?,?,?,?)");
+	$sql = $Connect->prepare("INSERT INTO master_id (`id`,`password`,`salt`,`identifier`) VALUES (?,?,?,?)");
 	$sql->bind_param("ssss", $id, $password, $salt, $identifier);
 	$sql->execute();
 }
