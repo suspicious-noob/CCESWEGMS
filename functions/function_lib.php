@@ -27,12 +27,12 @@ function bake($salt, $bread, $flavor)
 	return $cake;
 }
 
-function conjure($id, $password, $identifier, $Connect)
+function conjure($id, $password, $identifier)
 {
 	$salt = shake();
 	$password = bake($salt, $password, "sha256");
 	$salt = base64_encode($salt);
-	$sql = $Connect->prepare("INSERT INTO master_id (`id`,`password`,`salt`,`identifier`) VALUES (?,?,?,?)");
+	$sql = Connect->prepare("INSERT INTO master_id (`id`,`password`,`salt`,`identifier`) VALUES (?,?,?,?)");
 	$sql->bind_param("ssss", $id, $password, $salt, $identifier);
 	$sql->execute();
 }
@@ -54,11 +54,11 @@ function verify($password, $user)
 	}
 }
 
-function cook_user($id,$Connect)
+function cook_user($id)
 {
 	$value = NULL;
 	$stmt = "SELECT * FROM master_id WHERE BINARY `id` = ?";
-	$sql = $Connect->prepare($stmt);
+	$sql = Connect->prepare($stmt);
 	$sql->bind_param("s", $id);
 	$sql->execute();
 	$result = $sql->get_result();
@@ -66,12 +66,12 @@ function cook_user($id,$Connect)
 	return $value;
 }
 
-function cook_user_spec($id,$identifier,$Connect)
+function cook_user_spec($id,$identifier)
 {
 	if($identifier == "Student"){
 		$value = NULL;
 		$stmt = "SELECT * FROM student_list WHERE BINARY `id` = ?";
-		$sql = $Connect->prepare($stmt);
+		$sql = Connect->prepare($stmt);
 		$sql->bind_param("s", $id);
 		$sql->execute();
 		$result = $sql->get_result();
@@ -80,7 +80,7 @@ function cook_user_spec($id,$identifier,$Connect)
 	}else{
 		$value = NULL;
 		$stmt = "SELECT * FROM master_id WHERE BINARY `id` = ?";
-		$sql = $Connect->prepare($stmt);
+		$sql = Connect->prepare($stmt);
 		$sql->bind_param("s", $id);
 		$sql->execute();
 		$result = $sql->get_result();
