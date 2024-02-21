@@ -54,11 +54,11 @@ function verify($password, $user)
 	}
 }
 
-function cook_user($id)
+function cook_user($id,$Connect)
 {
 	$value = NULL;
 	$stmt = "SELECT * FROM master_id WHERE BINARY `id` = ?";
-	$sql = Connect->prepare($stmt);
+	$sql = $Connect->prepare($stmt);
 	$sql->bind_param("s", $id);
 	$sql->execute();
 	$result = $sql->get_result();
@@ -66,12 +66,12 @@ function cook_user($id)
 	return $value;
 }
 
-function cook_user_spec($id,$identifier)
+function cook_user_spec($id,$identifier,$Connect)
 {
 	if($identifier == "Student"){
 		$value = NULL;
 		$stmt = "SELECT * FROM student_list WHERE BINARY `id` = ?";
-		$sql = Connect->prepare($stmt);
+		$sql = $Connect->prepare($stmt);
 		$sql->bind_param("s", $id);
 		$sql->execute();
 		$result = $sql->get_result();
@@ -80,7 +80,7 @@ function cook_user_spec($id,$identifier)
 	}else{
 		$value = NULL;
 		$stmt = "SELECT * FROM master_id WHERE BINARY `id` = ?";
-		$sql = Connect->prepare($stmt);
+		$sql = $Connect->prepare($stmt);
 		$sql->bind_param("s", $id);
 		$sql->execute();
 		$result = $sql->get_result();
