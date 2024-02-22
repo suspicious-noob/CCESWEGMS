@@ -292,18 +292,18 @@ Philippine...</p>Posted by <a href="https://facebook.com/CalapanChuEngSchool">Ca
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <!-- <?php
-                                    $result = mysqli_query($conn, "SELECT * FROM student ORDER BY Lname");
+                                    <?php
+                                    // $result = mysqli_query($conn, "SELECT * FROM student ORDER BY Lname");
 
-                                    while ($rows = mysqli_fetch_array($result)) {
-                                        echo "<tr>";
-                                        echo "<td>" . $rows['Student_ID'] . "</td>";
-                                        echo "<td>" . $rows['Fname'] . "</td>";
-                                        echo "<td>" . $rows['Lname'] . "</td>";
-                                        echo "<td><a href=\"viewstudents.php\">Edit</a> | <a href=\"delete.php?id=$rows[Student_ID]\"onClick=\"return confirm('Are you sure you want todelete?')\">Delete</a></td>";
-                                    }
-                                    echo "</tr>";
-                                    ?> -->
+                                    // while ($rows = mysqli_fetch_array($result)) {
+                                    //     echo "<tr>";
+                                    //     echo "<td>" . $rows['Student_ID'] . "</td>";
+                                    //     echo "<td>" . $rows['Fname'] . "</td>";
+                                    //     echo "<td>" . $rows['Lname'] . "</td>";
+                                    //     echo "<td><a href=\"viewstudents.php\">Edit</a> | <a href=\"delete.php?id=$rows[Student_ID]\"onClick=\"return confirm('Are you sure you want todelete?')\">Delete</a></td>";
+                                    // }
+                                    // echo "</tr>";
+                                    ?>
                                 </tbody>
                             </table>
                         </div>
