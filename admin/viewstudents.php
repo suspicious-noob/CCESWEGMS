@@ -181,14 +181,14 @@ if (isset($_SESSION['id'])) {
                                 </thead>
                                 <tbody>
                                     <?php
-                                    $result = mysqli_query($conn,"SELECT * FROM student ORDER BY Lname");
+                                    $result = mysqli_query($conn,"SELECT * FROM student_list ORDER BY lname");
 
                                     while ($rows = mysqli_fetch_array($result)) {
                                         echo "<tr>";
-                                        echo "<td>" . $rows['Student_ID'] . "</td>";
-                                        echo "<td>" . $rows['Fname'] . "</td>";
-                                        echo "<td>" . $rows['Lname'] . "</td>";
-                                        echo "<td><a href=\"edit.php?id=$rows[Student_ID]\">Edit</a> | <a href=\"delete.php?id=$rows[Student_ID]\"onClick=\"return confirm('Are you sure you want todelete?')\">Delete</a></td>";
+                                        echo "<td>" . $rows['id'] . "</td>";
+                                        echo "<td>" . $rows['fname'] . "</td>";
+                                        echo "<td>" . $rows['lname'] . "</td>";
+                                        echo "<td><a href=\"edit.php?id=$rows[id]\">Edit</a> | <a href=\"delete.php?id=$rows[id]\"onClick=\"return confirm('Are you sure you want todelete?')\">Delete</a></td>";
                                     }
                                     echo "</tr>";
                                     ?>
